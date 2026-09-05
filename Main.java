@@ -15,15 +15,39 @@ public class Main{
     frame.setSize(640, 480);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   
-    JPanel Leftpanel = new JPanel();
+    JPanel Leftpanel = new JPanel(new BorderLayout());
     Leftpanel.setBackground(Color.LIGHT_GRAY);
     Leftpanel.setPreferredSize(new Dimension(180, 640));
-    JPanel Rightpanel = new JPanel();
+    JPanel Rightpanel = new JPanel(new BorderLayout());
     Rightpanel.setBackground(Color.WHITE);
-    
+	JPanel BottomPanel = new JPanel(new BorderLayout());
+	
+	JPanel title = new JPanel(new BorderLayout());
+	title.setBackground(Color.BLUE);
+	title.setPreferredSize(new Dimension(180, 40));
+	JLabel t1 = new JLabel("Users");
+	t1.setBounds(0, 90, 50, 20);
+	t1.setForeground(Color.WHITE);
+	t1.setFont(new Font("Arial", Font.BOLD, 20));
+
     frame.setLocationRelativeTo(null);
     frame.add(Leftpanel, BorderLayout.WEST);
     frame.add(Rightpanel, BorderLayout.CENTER);
+	Rightpanel.add(BottomPanel, BorderLayout.SOUTH);
+		
+	JTextField chat = new JTextField(20);
+	BottomPanel.add(chat, BorderLayout.CENTER);
+	
+	JButton send = new JButton("Send");
+	send.setPreferredSize(new Dimension(75, 25));
+	send.setBackground(Color.BLUE);
+	send.setForeground(Color.WHITE);
+	BottomPanel.add(send, BorderLayout.EAST);
+	
+	Leftpanel.add(title, BorderLayout.NORTH);
+	title.add(t1, BorderLayout.CENTER);
+
+	
     frame.setVisible(true);
   }
 
